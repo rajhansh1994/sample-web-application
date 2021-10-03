@@ -4,15 +4,15 @@
 
 pipeline{
 
-      agent {
-                docker {
-                image 'maven:3-openjdk-11'
-                args '-v $HOME/.m2:/root/.m2'
-                }
-            }
+      agent any
         
         stages{
 		
+		         stage('Git checkout'){
+                  steps{
+                         git 'https://github.com/rajhansh1994/sample-web-application.git'
+               	     }  
+                 }
 
               stage('maven build'){
                   steps{
@@ -21,6 +21,7 @@ pipeline{
                       	  }
                	     }  
                  }	
+		
                  
                  stage ('Check logs') {
                     steps {
