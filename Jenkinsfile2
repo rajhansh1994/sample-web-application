@@ -13,13 +13,6 @@ pipeline{
         
         stages{
 		
-		stage('clone the repo'){
-			steps{
-				script{
-					git 'https://github.com/rajhansh1994/sample-web-application.git'
-				}
-			}
-		}
 
               stage('maven build'){
                   steps{
